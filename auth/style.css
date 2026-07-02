@@ -1,0 +1,579 @@
+/* style.css */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800&display=swap");
+
+:root {
+  --primary-color: #63c2d0;
+  --secondary-color: #c8eff5;
+  --accent-color: #7b113a74;
+  --font-color: #172b43;
+  --text-dark: #333;
+  --text-light: #666;
+  --text-white: #fff;
+  --background-light: #f8f9fa;
+  --error-color: #ff4757;
+  --success-color: #2ed573;
+  --transition-time: 0.5s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Mulish", sans-serif;
+}
+
+body {
+  background: radial-gradient(#52323fb4, #8accd6d3),
+    url("../Gambar/Kontak-unsika.jpg"); /* Path gambar */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Ini akan mengunci background */
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+.container {
+  font-family: "Mulish";
+  width: 100%;
+  max-width: 800px;
+  height: 600px;
+  position: fixed;
+  margin-top: 80px;
+  opacity: 0;
+  /*transition: opacity 1s ease, transform 1s ease;
+  */
+  transition: 0.3s;
+  /*transform-style: preserve-3d;
+  */
+  gap: 20px;
+  top: 0;
+}
+
+.container:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 30px;
+}
+
+.container.loaded {
+  opacity: 1;
+}
+
+/* Navigation Bar Styles */
+.top-nav-bar {
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.nav-content {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #1597bb;
+  text-decoration: none;
+  font-weight: 500;
+  transition: transform 0.1s ease;
+}
+
+.home-link:hover {
+  color: var(--font-color);
+  transform: translateX(-3px);
+}
+
+.home-link:active {
+  transform: scale(0.98);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+  color: #1597bb;
+}
+
+.logo img {
+  height: 30px;
+  object-fit: contain;
+}
+
+.panel {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  gap: 20px;
+}
+
+.split {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-time) ease-in-out;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 1;
+  transform-style: preserve-3d;
+}
+
+/* Modified for register page */
+.split.left {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  color: var(--text-dark);
+  transition: transform 0.8s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  position: absolute;
+  right: 0; /* Changed from left: 0 to right: 0 */
+  top: 0;
+  z-index: 2;
+}
+
+.split.right {
+  background-color: var(--background-light);
+  color: var(--text-dark);
+  position: absolute;
+  left: 0; /* Changed from right: 0 to left: 0 */
+  top: 0;
+}
+
+/* Custom styles for register page only */
+.register-panel {
+  flex-direction: row !important; /* Override the reverse class */
+}
+
+.register-left {
+  background-color: var(--background-light);
+  color: var(--text-dark);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.register-right {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  color: var(--text-dark);
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 2;
+}
+
+.register-label {
+  color: #333;
+}
+
+.register-text {
+  color: #333;
+}
+
+.content {
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  transition: transform var(--transition-time) ease,
+    opacity var(--transition-time) ease;
+  transform: translateZ(0);
+}
+
+.tilt-element {
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+}
+
+.tilt-element .content {
+  transform: translateZ(20px);
+}
+
+.image-container {
+  width: 150px;
+  margin-left: 90px;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.campus-image {
+  width: 100%;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+.campus-image:hover {
+  transform: scale(1.05);
+}
+
+h2 {
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: inherit;
+}
+
+p {
+  margin-bottom: 25px;
+  line-height: 1.5;
+  color: inherit;
+  opacity: 0.85;
+}
+
+.features,
+.benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.feature,
+.benefit {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.feature span {
+  font-size: 15px; /* Sesuaikan ukuran sesuai keinginan, misal: 10px, 12px, 14px */
+}
+
+.benefits span {
+  font-size: 15px; /* Sesuaikan ukuran sesuai keinginan, misal: 10px, 12px, 14px */
+}
+
+.feature i,
+.benefit i {
+  font-size: 20px;
+  width: 30px;
+  text-align: center;
+  color: inherit;
+}
+
+.form-container {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #ddd;
+}
+
+input {
+  width: 100%;
+  padding: 9px 4px;
+  border: 4px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.icon-left {
+  position: absolute;
+  left: 12px;
+  font-size: 14px;
+  color: var(--primary-color);
+}
+
+/* Sembunyikan toggle password bawaan browser */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear,
+input[type="password"]::-webkit-reveal,
+input[type="password"]::-webkit-caps-lock-indicator,
+input[type="password"]::-webkit-credentials-auto-fill-button {
+  display: none !important;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+}
+
+/* Untuk browser non-WebKit */
+input[type="password"] {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.custom-input.with-icon {
+  padding-left: 35px;
+}
+
+.custom-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  padding-left: 35px; /* Memberi ruang pada input untuk ikon di kiri */
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper .toggle-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+}
+
+.custom-label {
+  display: block;
+  text-align: left;
+  margin-top: 20px;
+  font-weight: 500;
+  font-size: 14px;
+  color: inherit; /* Hitam */
+}
+
+/* Styling placeholder agar terlihat lebih jelas */
+.custom-input::placeholder {
+  color: #898989; /* Warna placeholder */
+  opacity: 1; /* Pastikan opacity tidak tersembunyi */
+  font-size: 12px;
+  font-style: italic; /* Agar tampak berbeda */
+}
+
+stom-input:focus::placeholder {
+  color: #757575; /* Warna saat fokus */
+  opacity: 0.7;
+}
+
+.custom-input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+.btn-submit-custom {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(to right, #150e56, var(--primary-color));
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(to right, #150e5672, var(--primary-color));
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+  background: linear-gradient(
+    to right,
+    var(--accent-color),
+    var(--primary-color)
+  );
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(78, 84, 200, 0.3);
+}
+
+.form-footer {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.slide-left {
+  transform: translateX(-100%);
+}
+
+.switch-link {
+  color: var(--font-color);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.switch-link:hover {
+  text-decoration: underline;
+}
+
+.error-message {
+  background-color: rgba(255, 71, 87, 0.1);
+  color: var(--error-color);
+  padding: 10px;
+  border-radius: 15px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  text-align: center;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+
+/* Toggle Password */
+
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper1 {
+  position: relative;
+}
+
+.password-wrapper input {
+  padding-right: 40px;
+}
+
+.password-wrapper1 input {
+  padding-right: 40px;
+}
+
+.toggle-icon {
+  position: absolute;
+  top: 55%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #bbbbbb;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.toggle-icon:hover {
+  color: var(--primary-color);
+}
+
+.toggle-icon1 {
+  position: absolute;
+  top: 70%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #bbbbbb;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.toggle-icon1:hover {
+  color: var(--primary-color);
+}
+
+/* Custom style untuk popup error */
+.swal2-popup.swal2-error {
+  background-color: #ffebee; /* Warna background */
+  border: 2px solid #f44336; /* Border merah */
+  border-radius: 15px; /* Sudut melengkung */
+}
+
+/* Kunci posisi halaman saat SweetAlert muncul */
+body.swal2-shown {
+  overflow: hidden !important; /* Kunci scroll */
+  position: fixed !important; /* Kunci posisi */
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.swal2-container {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 9999 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Custom style untuk tombol */
+.swal2-confirm {
+  background-color: var(--primary-color) !important; /* Warna hijau */
+  border-radius: 5px !important;
+}
+
+/* Custom style untuk judul */
+.swal2-title {
+  font-size: large;
+  font-family: "Mulish", sans-serif;
+}
+
+.swal2-text {
+  font-size: medium;
+}
+
+/* CSS Tambahan */
+.swal2-small-title {
+  font-size: 16px !important; /* Judul lebih kecil */
+}
+
+.swal2-popup.swal2-error {
+  padding: 1rem !important; /* Padding diperketat */
+}
+
+@keyframes slideToLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
